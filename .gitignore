@@ -1,0 +1,9 @@
+.env
+.env.*
+*.bak
+outputs/
+data/*.pdf
+data/*.sqlite
+data/*.sqlite-*
+php/knintei_data/*.sqlite
+__pycache__/
