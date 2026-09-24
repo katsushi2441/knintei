@@ -103,10 +103,11 @@ def main() -> int:
             "death_median": med, "death_national": sum(v for _, v in deaths)}
     json.dump({"meta": meta, "cities": out}, open(OUT, "w", encoding="utf-8"), ensure_ascii=False)
     print(f"→ {OUT} {len(out):,}団体 / 死亡者数の中央値 {med:,.0f}人 / 合計 {meta['death_national']:,}人")
-    for c in ("231061", "131016", "271284", "014605"):
+    name = {c["code"]: c["pref"] + c["city"] for c in cj}
+    for c in ("231061", "131016", "271284", "012092"):
         v = out.get(c)
         if v:
-            print(f"  {c}: 人口{v['pop']:,} 死亡{v['death']:,}人（全国{v['death_rank']}位/{v['death_total']}・千人あたり{v['death_per1k']}）")
+            print(f"  {name.get(c, c)}: 人口{v['pop']:,} 死亡{v['death']:,}人（全国{v['death_rank']}位/{v['death_total']}・千人あたり{v['death_per1k']}）")
     return 0
 
 

@@ -1,0 +1,1 @@
+<?php $u=parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH);if(strpos($u,'/knintei.php')===0){$_SERVER['PATH_INFO']=substr($u,strlen('/knintei.php'));require __DIR__.'/../php/knintei.php';return true;} return false;

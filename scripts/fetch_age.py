@@ -104,10 +104,13 @@ def main() -> int:
     print(f"→ {OUT} {len(out):,}団体")
     print(f"  全国: 人口 {natpop:,} / 65歳以上 {nat65:,}（{meta['rate65_national']}%）"
           f" / 中央値 {med65:,.0f}人・{medr}%")
-    for c, nm in (("231061", "名古屋市中区"), ("131016", "千代田区"), ("014605", "夕張市")):
+    # **コードと名前を手で対応させない。** 014605 を夕張市と書いていたが、実際は上富良野町。
+    # cities.json から名前を引く。
+    name = {c["code"]: c["pref"] + c["city"] for c in cj}
+    for c in ("231061", "131016", "012092", "014605"):
         v = out.get(c)
         if v:
-            print(f"  {nm}: 人口{v['pop']:,} 65歳以上{v['e65']:,}（{v['rate65']}%・"
+            print(f"  {name.get(c, c)}: 人口{v['pop']:,} 65歳以上{v['e65']:,}（{v['rate65']}%・"
                   f"全国{v['rate65_rank']}位/{v['rate65_total']}）75歳以上{v['e75']:,}")
     return 0
 
