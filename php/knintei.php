@@ -17,7 +17,7 @@ $OGP    = 'https://kurage.exbridge.jp/images/ogp/knintei.png';
 $ICON   = 'https://kurage.exbridge.jp/images/kurage-mascot-cutout-300.webp';
 $MASCOT = 'https://kurage.exbridge.jp/images/kurage-mascot-cutout-300.webp';
 $XBLOGO = 'https://exbridge.jp/images/logo-mark-64.png';
-$STORE  = 'https://kappstore.exbridge.jp/app.php?id=';   // 出品後に商品IDを入れる
+$STORE  = 'https://kappstore.exbridge.jp/app.php?id=0b560e1299f406a5';
 $DBPATH = __DIR__ . '/knintei_data/knintei.sqlite';
 $BASE   = 'https://kurage.exbridge.jp' . $SELF;
 
@@ -239,14 +239,14 @@ function item_html($db, $p, $full = false) {
 /** オンプレミス版の案内。人が着地するページの本文に置く。 */
 function store_html($ref, $lead = '') {
     global $STORE, $OGP;
-    if ($STORE === 'https://kappstore.exbridge.jp/app.php?id=') { return; }  // 出品前は出さない
+    if (substr($STORE, -3) === 'id=') { return; }  // 出品前は空リンクを出さない
     echo '<div class="panel store"><div class="cols2"><div>';
     echo '<div class="src" style="margin-bottom:4px">自分のサーバーに置く</div>';
     echo '<h3 style="margin:0 0 8px">このシステムのオンプレミス版</h3>';
     echo '<p style="margin:0;font-size:14.5px">' . ($lead ? h($lead) . '<br>' : '')
        . 'PHP1ファイルとSQLite1本だけです。自分の市区町村の窓口名・電話・様式のリンクを足して使えます。'
        . '地域包括支援センターや居宅介護支援事業所が、相談の場でそのまま開ける作りです。</p>';
-    echo '<p style="margin:14px 0 0"><a class="btn" href="' . h($STORE . '&ref=' . $ref) . '">オンプレミス版を見る</a></p>';
+    echo '<p style="margin:14px 0 0"><a class="btn" href="' . h($STORE . '&amp;ref=' . $ref) . '">オンプレミス版を見る</a></p>';
     echo '</div><div class="store-fig"><img src="' . h($OGP) . '" alt="" loading="lazy" width="1200" height="630"></div>';
     echo '</div></div>';
 }

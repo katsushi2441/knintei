@@ -1,0 +1,46 @@
+MIT License
+
+Copyright (c) 2026 EXBRIDGE, Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+同梱データ（knintei_data/knintei.sqlite）について:
+
+認定調査の項目・選択肢・調査項目の定義・選択肢の選択基準は、厚生労働省「認定調査員
+テキスト2009改訂版（令和6年4月改訂）」からの引用です。
+  https://www.mhlw.go.jp/content/001249525.pdf
+**言い換えず、原文のまま収録しています。** 認定調査は選択肢の文言そのものが判断の基準に
+なるためです。画面と配布物の出典表記は外さずにお使いください。
+
+区分の境目（要介護認定等基準時間）と申請の期限は、デジタル庁「e-Gov法令検索」の法令API
+から取得した条文です。 https://laws.e-gov.go.jp/
+市区町村の一覧は総務省「全国地方公共団体コード」、人口と65歳以上人口は総務省「住民基本
+台帳に基づく人口、人口動態及び世帯数」（令和8年1月1日現在）。
+いずれも政府標準利用規約（第2.0版）に従い、出典を示したうえで利用しています。
+
+本システムは**要介護度を判定しません**。区分は要介護認定等基準時間で決まり、その時間は
+「厚生労働大臣の定める方法により推計される時間」と省令が定めています。この推計方法
+（一次判定ソフト）の係数は公開されていないため、公開データから再現することはできません。
+認定は市区町村の介護認定審査会が行います。申請や区分の相談は、お住まいの市区町村の
+介護保険担当課か地域包括支援センターへ。
+
+市区町村の課の名前・電話・受付時間・様式は収録していません。市区町村ごとに異なり、
+公式サイトの本文を転載しない方針のためです。
